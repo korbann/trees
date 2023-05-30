@@ -8,9 +8,9 @@ typedef struct AVL_node AVL_node_t;
 typedef struct AVL_node
 {
     int data;
+    int height;
     AVL_node_t *left;
     AVL_node_t *right;
-    int height;
 } AVL_node_t;
 
 AVL_node_t *root;
