@@ -48,9 +48,17 @@ static void right_rotation(int new_value, AVL_node_t *nodeForRotation, AVL_node_
 *      \
 *       3
 */
-static void left_rotation()
+static void left_rotation(int new_value, AVL_node_t *nodeForRotation, AVL_node_t **parentsLink)
 {
-    
+    if(NULL != parentsLink)
+    {
+        *parentsLink = nodeForRotation->right;
+    }
+    nodeForRotation->right->left = nodeForRotation;
+    nodeForRotation->right->right = new_node(new_value);
+
+    nodeForRotation->left = NULL;
+    nodeForRotation->right = NULL;
 }
 
 /*   3            3         2
